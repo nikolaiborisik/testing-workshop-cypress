@@ -73,9 +73,8 @@ it('starts with zero items', () => {
 it('does not allow adding blank todos', () => {
   // https://on.cypress.io/catalog-of-events#App-Events
 
-  cy.on('uncaught:exception', (e) => {
-
-    return  !e.message.includes('Cannot add a blank todo')
+  cy.on('uncaught:exception', e => {
+    return !e.message.includes('Cannot add a blank todo')
   })
 
   addNewItem('a')
